@@ -2,7 +2,7 @@
 This is a finished Conferance planner web site based on the Hot Chocalate Conferance planner web site with a few additions.
 
 ## Creating and Configuring the SQL Server database.
-The Hot Chocale conferance planner uses a SQL-Lite database, for simpliesty, but no one uses sql lite in reality, except for perhaps IOT Apps. Since we will not be developing an IOT application lets give our Conferance planner a full fledged database such as SQL Server.
+The Hot Chocale conferance planner uses a SQL-Lite database, for simpliesty, but no one uses sql lite in reality, except for perhaps IOT apps. Since we will not be developing an IOT application, lets configure our conferance planner application to use a full fledged database such as SQL Server.
 
 ### Configuring SQL Server on Docker
 The fastest way to configure and setup a database is by using docker, where small prebuilt images can be used to configure and create complex applications. 
