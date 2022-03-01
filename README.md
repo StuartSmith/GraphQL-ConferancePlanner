@@ -17,14 +17,16 @@ or on windows
 
 ### Install SQL Server
 
-for the password, so we can remember it for the SA Account lets create it with the state animal of New York plus the zip code New york city which would make a password of
+For the password, so we can remember it, for the SA Account lets create it with the state animal of New York, plus a zip code from New york city which would make a password of
 Beaver10105. This is type of password should only be used in development environments. In production one should use a much stronger password.
+
+To create the SQL Server docker instance from a linux console run.  
 
 <code>sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Beaver10105" \
    -p 1433:1433 --name sqlServer --hostname sql1 \
    -d mcr.microsoft.com/mssql/server:2019-latest</code>
  
- or on windows
+ or from a windows console run. 
  
 <code> docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Beaver10105" -p 1433:1433 --name sqlServer --hostname sql1 -d mcr.microsoft.com/mssql/server:2019-latest</code>
  
