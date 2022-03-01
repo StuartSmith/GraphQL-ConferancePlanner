@@ -1,17 +1,19 @@
 # GraphQL-ConferancePlanner
 This is a finished Conferance planner web site based on the Hot Chocalate Conferance planner web site with a few additions.
 
-## Configuring the database.
+## Creating and Configuring the SQL Server database.
 The Hot Chocale conferance planner uses a SQL-Lite database, for simpliesty, but no one uses sql lite in reality, except for perhaps IOT Apps. Since we will not be developing an IOT application lets give our Conferance planner a full fledged database such as SQL Server.
 
-## Configuring SQL Server on Docker
-The fastest way to configure and setup a database is by using docker. Where small prebuilt images can be used to configure and create complex applications. 
+### Configuring SQL Server on Docker
+The fastest way to configure and setup a database is by using docker, where small prebuilt images can be used to configure and create complex applications. 
 
 ### Pull down the latest version of SQL SERVER
 
+From a linux console
+
 <code>sudo docker pull mcr.microsoft.com/mssql/server:2019-latest </code>
 
-or on windows
+or from a windows console
 
 <code>docker pull mcr.microsoft.com/mssql/server:2019-latest</code>
 
