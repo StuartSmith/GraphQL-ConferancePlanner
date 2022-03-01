@@ -1,5 +1,5 @@
 # GraphQL-ConferancePlanner
-This is a finished Conferance planner web site based on the Hot Chocalate Conferance planner web site with a few addtion.
+This is a finished Conferance planner web site based on the Hot Chocalate Conferance planner web site with a few additions.
 
 ## Configuring the database.
 The Hot Chocale conferance planner uses a SQL-Lite database, for simpliesty, but no one uses sql lite in reality, except for perhaps IOT Apps. Since we will not be developing an IOT application lets give our Conferance planner a full fledged database such as SQL Server.
