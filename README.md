@@ -9,38 +9,39 @@ The fastest way to configure and setup a database is by using docker. Where smal
 
 ### Pull down the latest version of SQL SERVER
 
-sudo docker pull mcr.microsoft.com/mssql/server:2019-latest
+<code>sudo docker pull mcr.microsoft.com/mssql/server:2019-latest </code>
 
 or on windows
 
-docker pull mcr.microsoft.com/mssql/server:2019-latest
+<code>docker pull mcr.microsoft.com/mssql/server:2019-latest</code>
 
 ### Install SQL Server
 
-for are password, so we can remember it for the SA Account lets create it with the state animal of New York plus a zip code New york city which would make a password of
-Beaver10105
+for the password, so we can remember it for the SA Account lets create it with the state animal of New York plus the zip code New york city which would make a password of
+Beaver10105. This is type of password should only be used in development environments. In production one should use a much stronger password.
 
-sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Beaver10105" \
+<code>sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Beaver10105" \
    -p 1433:1433 --name sqlServer --hostname sql1 \
-   -d mcr.microsoft.com/mssql/server:2019-latest
+   -d mcr.microsoft.com/mssql/server:2019-latest</code>
  
  or on windows
  
- docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Beaver10105" -p 1433:1433 --name sqlServer --hostname sql1 -d mcr.microsoft.com/mssql/server:2019-latest
+<code> docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Beaver10105" -p 1433:1433 --name sqlServer --hostname sql1 -d mcr.microsoft.com/mssql/server:2019-latest</code>
  
  ### Create the Conferance Planner User
- Create a new SQL Server user
+We would like the Conferance Planner Application to use it's own user and password that only has access to the conferance planner database and no other databases within our configuraton. 
  
  **Step 1: create Login**
-   --Create the Login
-   UserAccount:ConPlanUser
-   Password:ConPlanPassword!
+ Create the Login
  
- CREATE LOGIN ConPlanUser   
-    WITH PASSWORD = 'ConPlanPassword!';  
-   GO 
+ UserAccount:ConPlanUser<br>
+ Password:ConPlanPassword!<br>
  
- **Step 2: Create User**
+ <code>CREATE LOGIN ConPlanUser   
+    WITH PASSWORD = 'ConPlanPassword!';<br>  
+   GO </code>
+ 
+ **Step 2: Create User**<br>
  CREATE USER ConPlanUser FOR LOGIN ConPlanUser;  
  GO  
  
@@ -54,18 +55,10 @@ from sys.database_principals
 where name ='ConPlanUser'
  
 
-  ### Create the Conferance Planner database
-  ConfPlanDB
+### Create the Conferance Planner database
+The database name will be ConfPlanDB
   
-  
-  
-USE ConfPlanDB;
-GO
-ALTER ROLE db_owner ADD MEMBER ConPlanUser;
 
-CREATE LOGIN AbolrousHazem   
-    WITH PASSWORD = '340$Uuxwp7Mcxo7Khy';  
-GO  
   
  
  
