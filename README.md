@@ -61,7 +61,34 @@ where name ='ConPlanUser'
 
 ### Create the Conferance Planner database
 The database name will be ConfPlanDB
-  
+
+<code>
+   Create Database ConfPlanDB;
+</code><br>
+
+Add the Conferance Planner User to the database<br>
+   <code>   
+     Create Database ConfPlanDB;  
+   </code>
+<br>
+Add the newly created user to the newly created database <br>
+  <code>   
+   EXEC sp_adduser 'ConPlanUser';  
+ </code>
+
+Give the newly created user the ability to create / drop / select all tables in the database<br>
+   <code> 
+      EXEC sp_addrolemember N'db_datawriter', N'ConPlanUser'
+   </code>
+   <br>
+   <code> 
+      EXEC sp_addrolemember N'db_datareader', N'ConPlanUser'
+   </code>
+
+
+
+
+
 
   
  
