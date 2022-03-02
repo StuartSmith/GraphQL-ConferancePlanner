@@ -32,7 +32,7 @@ To create the SQL Server docker instance from a linux console run.
  
 <code> docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Beaver10105" -p 1433:1433 --name sqlServer --hostname sql1 -d mcr.microsoft.com/mssql/server:2019-latest</code>
  
- ### Create the Conferance Planner User
+ ### Create the Conferance Planner SQl Server User
 We would like the Conferance Planner Application to use it's own user and password that only has access to the conferance planner database and no other databases within our configuraton. 
  
  **Step 1: create Login**
@@ -84,12 +84,3 @@ Give the newly created user the ability to create / drop / select all tables in 
    <code> 
       EXEC sp_addrolemember N'db_datareader', N'ConPlanUser'
    </code>
-
-
-
-
-
-
-  
- 
- 
