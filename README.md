@@ -78,9 +78,17 @@ Add the newly created user to the newly created database <br>
 
 Give the newly created user the ability to create / drop / select all tables in the database<br>
    <code> 
+      Use ConfPlanDB;
+   </code>
+   <code> 
       EXEC sp_addrolemember N'db_datawriter', N'ConPlanUser'
    </code>
    <br>
    <code> 
       EXEC sp_addrolemember N'db_datareader', N'ConPlanUser'
    </code>
+   
+   <code> 
+   exec sp_addrolemember 'db_owner', N'ConPlanUser'
+   </code>
+
