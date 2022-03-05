@@ -66,37 +66,38 @@ The database name will be ConfPlanDB
    Create Database ConfPlanDB;
 </code><br>
 
-Add the Conferance Planner User to the database<br>
-   <code>   
-     Create Database ConfPlanDB;  
-   </code>
-<br>
 Add the newly created user to the newly created database <br>
   <code>   
-   Use ConfPlanDB;
+   Use ConfPlanDB;<br>
+   </code>
+   <br>
+  <code>   
    EXEC sp_adduser 'ConPlanUser';  
  </code>
 
 Give the newly created user the ability to create / drop / select all tables in the database<br>
-
+ 
    <code> 
       Use ConfPlanDB;
    </code>
+   <br>
    <code> 
       EXEC sp_addrolemember N'db_datawriter', N'ConPlanUser'
+   </code> 
+   <br>
+   <code> 
+         EXEC sp_addrolemember N'db_datareader', N'ConPlanUser'
    </code>
    <br>
    <code> 
-      EXEC sp_addrolemember N'db_datareader', N'ConPlanUser'
+      exec sp_addrolemember 'db_owner', N'ConPlanUser'
    </code>
-   
-   <code> 
-   exec sp_addrolemember 'db_owner', N'ConPlanUser'
-   </code>
-   
+  <br> <br>
  Set the ConPlanUser has a default schema of dbo.
  
   <code> 
    Use ConfPlanDB;
+   </code><br>
+   <code> 
    ALTER USER ConPlanUser  WITH DEFAULT_SCHEMA = dbo;
   </code>
