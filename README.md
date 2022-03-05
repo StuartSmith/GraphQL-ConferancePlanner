@@ -73,6 +73,7 @@ Add the Conferance Planner User to the database<br>
 <br>
 Add the newly created user to the newly created database <br>
   <code>   
+   Use ConfPlanDB;
    EXEC sp_adduser 'ConPlanUser';  
  </code>
 
