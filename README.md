@@ -77,6 +77,7 @@ Add the newly created user to the newly created database <br>
  </code>
 
 Give the newly created user the ability to create / drop / select all tables in the database<br>
+
    <code> 
       Use ConfPlanDB;
    </code>
@@ -91,4 +92,10 @@ Give the newly created user the ability to create / drop / select all tables in 
    <code> 
    exec sp_addrolemember 'db_owner', N'ConPlanUser'
    </code>
-
+   
+ Set the ConPlanUser has a default schema of dbo.
+ 
+  <code> 
+   Use ConfPlanDB;
+   ALTER USER ConPlanUser  WITH DEFAULT_SCHEMA = dbo;
+  </code>
