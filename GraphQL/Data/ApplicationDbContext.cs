@@ -14,6 +14,14 @@ namespace ConferencePlanner.GraphQL.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder
+                .Entity<Speaker>();
+
+            modelBuilder
+                .Entity<Speaker>();
+
+
             modelBuilder
                 .Entity<Attendee>()
                 .HasIndex(a => a.UserName)
@@ -30,12 +38,15 @@ namespace ConferencePlanner.GraphQL.Data
                 .HasKey(ss => new { ss.SessionId, ss.SpeakerId });
         }
 
-        public DbSet<Session> Sessions { get; set; } = default!;
+        public DbSet<Attendee>? Attendees { get; set; } = default!;
+        public DbSet<Session>? Sessions { get; set; } = default!;
+        public DbSet<SessionAttendee>? SessionAttendees { get; set; } = default!;
 
-        public DbSet<Track> Tracks { get; set; } = default!;
+        public DbSet<SessionSpeaker>? SessionSpeakers { get; set; } = default!;
+        public DbSet<Speaker>? Speakers { get; set; } = default!;
+        public DbSet<Track>? Tracks { get; set; } = default!;
 
-        public DbSet<Speaker> Speakers { get; set; } = default!;
 
-        public DbSet<Attendee> Attendees { get; set; } = default!;
+
     }
 }

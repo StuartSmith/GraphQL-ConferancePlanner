@@ -5,40 +5,20 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GraphQL.Migrations
 {
-    public partial class Refactoring : Migration
+    public partial class Refactor : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "WebSite",
-                table: "Speakers",
-                type: "TEXT",
-                maxLength: 1000,
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldMaxLength: 1000);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Bio",
-                table: "Speakers",
-                type: "TEXT",
-                maxLength: 4000,
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldMaxLength: 4000);
-
             migrationBuilder.CreateTable(
                 name: "Attendees",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    FirstName = table.Column<string>(type: "TEXT", maxLength: 200, nullable: false),
-                    LastName = table.Column<string>(type: "TEXT", maxLength: 200, nullable: false),
-                    UserName = table.Column<string>(type: "TEXT", maxLength: 200, nullable: false),
-                    EmailAddress = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    EmailAddress = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -49,9 +29,9 @@ namespace GraphQL.Migrations
                 name: "Tracks",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", maxLength: 200, nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,13 +42,13 @@ namespace GraphQL.Migrations
                 name: "Sessions",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(type: "TEXT", maxLength: 200, nullable: false),
-                    Abstract = table.Column<string>(type: "TEXT", maxLength: 4000, nullable: true),
-                    StartTime = table.Column<DateTimeOffset>(type: "TEXT", nullable: true),
-                    EndTime = table.Column<DateTimeOffset>(type: "TEXT", nullable: true),
-                    TrackId = table.Column<int>(type: "INTEGER", nullable: true)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Abstract = table.Column<string>(type: "nvarchar(4000)", maxLength: 4000, nullable: true),
+                    StartTime = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    EndTime = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    TrackId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -84,8 +64,8 @@ namespace GraphQL.Migrations
                 name: "SessionAttendee",
                 columns: table => new
                 {
-                    SessionId = table.Column<int>(type: "INTEGER", nullable: false),
-                    AttendeeId = table.Column<int>(type: "INTEGER", nullable: false)
+                    SessionId = table.Column<int>(type: "int", nullable: false),
+                    AttendeeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -108,8 +88,8 @@ namespace GraphQL.Migrations
                 name: "SessionSpeaker",
                 columns: table => new
                 {
-                    SessionId = table.Column<int>(type: "INTEGER", nullable: false),
-                    SpeakerId = table.Column<int>(type: "INTEGER", nullable: false)
+                    SessionId = table.Column<int>(type: "int", nullable: false),
+                    SpeakerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -166,30 +146,6 @@ namespace GraphQL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Tracks");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "WebSite",
-                table: "Speakers",
-                type: "TEXT",
-                maxLength: 1000,
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldMaxLength: 1000,
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Bio",
-                table: "Speakers",
-                type: "TEXT",
-                maxLength: 4000,
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldMaxLength: 4000,
-                oldNullable: true);
         }
     }
 }

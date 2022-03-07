@@ -4,6 +4,7 @@ using ConferencePlanner.GraphQL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GraphQL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220303062201_Tracks")]
+    partial class Tracks
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,7 +104,7 @@ namespace GraphQL.Migrations
 
                     b.HasIndex("AttendeeId");
 
-                    b.ToTable("SessionAttendees");
+                    b.ToTable("SessionAttendee");
                 });
 
             modelBuilder.Entity("ConferancePlanner.GraphQL.Data.SessionSpeaker", b =>
@@ -117,7 +119,7 @@ namespace GraphQL.Migrations
 
                     b.HasIndex("SpeakerId");
 
-                    b.ToTable("SessionSpeakers");
+                    b.ToTable("SessionSpeaker");
                 });
 
             modelBuilder.Entity("ConferancePlanner.GraphQL.Data.Track", b =>

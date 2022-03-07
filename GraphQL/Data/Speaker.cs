@@ -18,6 +18,6 @@ namespace ConferencePlanner.GraphQL.Data
         public virtual string? WebSite { get; set; }
 
         public ICollection<SessionSpeaker> SessionSpeakers { get; set; } =
-            new List<SessionSpeaker>();
-    }
+           new List<SessionSpeaker>();
+    }    
 }

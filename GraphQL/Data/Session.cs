@@ -29,10 +29,10 @@ namespace ConferancePlanner.GraphQL.Data
 
         public int? TrackId { get; set; }
 
-        public ICollection<SessionSpeaker> SessionSpeakers { get; set; } =
+        public ICollection<SessionSpeaker>? SessionSpeakers { get; set; } =
             new List<SessionSpeaker>();
 
-        public ICollection<SessionAttendee> SessionAttendees { get; set; } =
+        public ICollection<SessionAttendee>? SessionAttendees { get; set; } =
             new List<SessionAttendee>();
 
         public Track? Track { get; set; }

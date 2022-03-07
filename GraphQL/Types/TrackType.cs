@@ -7,6 +7,8 @@ using ConferancePlanner.GraphQL.Data;
 using ConferancePlanner.GraphQL.DataLoader;
 using ConferancePlanner.GraphQL.Extensions;
 using ConferencePlanner.GraphQL.Data;
+using HotChocolate;
+using HotChocolate.Types;
 using Microsoft.EntityFrameworkCore;
 
 namespace ConferancePlanner.GraphQL.Types
@@ -26,6 +28,10 @@ namespace ConferancePlanner.GraphQL.Types
                 .ResolveWith<TrackResolvers>(t => t.GetSessionsAsync(default!, default!, default!, default))
                 .UseDbContext<ApplicationDbContext>()
                 .Name("sessions");
+
+            descriptor
+                .Field(t => t.Name)
+                .UseUpperCase();
         }
 
         private class TrackResolvers

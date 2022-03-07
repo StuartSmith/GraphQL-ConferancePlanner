@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConferencePlanner.GraphQL.Data;
+using GreenDonut;
 using Microsoft.EntityFrameworkCore;
 
 namespace ConferancePlanner.GraphQL.DataLoader
