@@ -1,58 +1,60 @@
-﻿using ConferancePlanner.GraphQL;
-using ConferancePlanner.GraphQL.DataLoader;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using ConferancePlanner.GraphQL;
 using ConferancePlanner.GraphQL.Sessions;
+using ConferancePlanner.GraphQL.Tracks;
 using ConferancePlanner.GraphQL.Types;
 using ConferencePlanner.GraphQL.Data;
 using ConferencePlanner.GraphQL.Speakers;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace ConferencePlanner.GraphQL
 {
-    public static class Startup
+    public class Startup
     {
-        public static WebApplication InitializeApp(string[] args)
+        public Startup(IConfigurationRoot configuration)
         {
-         
-            
-            var builder = WebApplication.CreateBuilder(args);
-
-            ConfigureServices(builder);
-
-            var app = builder.Build();
-
-            Configure(app);
-
-            return app;
+            Configuration = configuration;
         }
 
-        private static void ConfigureServices( WebApplicationBuilder builder)
-        {
-            //Configure Services.
-            builder.Services.AddPooledDbContextFactory<ApplicationDbContext>(options => options.UseSqlite("Data Source=conferences.db"));
+        public IConfigurationRoot Configuration { get; }
 
-            builder.Services.AddGraphQLServer()
+
+      
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddPooledDbContextFactory<ApplicationDbContext>(options =>
+                options.UseSqlServer("Server=localhost;Database=ConfPlanDB;User Id=ConPlanUser;Password=ConPlanPassword!;"));
+
+            services
+                .AddGraphQLServer()
                 .AddQueryType(d => d.Name("Query"))
                 .AddTypeExtension<SpeakerQueries>()
+                .AddTypeExtension<TrackQueries>()
                 .AddMutationType(d => d.Name("Mutation"))
                 .AddTypeExtension<SessionMutations>()
                 .AddTypeExtension<SpeakerMutations>()
+                .AddTypeExtension<TrackMutations>()
                 .AddType<AttendeeType>()
                 .AddType<SessionType>()
                 .AddType<SpeakerType>()
                 .AddType<TrackType>()
                 .EnableRelaySupport();
-
-
         }
 
-        private static void Configure(WebApplication app)
+        public void Configure(IApplicationBuilder app, IHostApplicationLifetime lifetime)
         {
-            //app.MapGet("/", () => "Hello World!");
-
             app.UseRouting();
 
-            app.MapGraphQL("/");
-
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapGraphQL();
+            });
         }
 
 

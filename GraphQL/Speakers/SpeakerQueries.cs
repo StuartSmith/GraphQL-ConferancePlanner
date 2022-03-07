@@ -3,6 +3,8 @@ using ConferancePlanner.GraphQL.DataLoader;
 using ConferancePlanner.GraphQL.Extensions;
 using HotChocolate;
 using ConferencePlanner.GraphQL.Data;
+using HotChocolate.Types;
+using HotChocolate.Types.Relay;
 using Microsoft.EntityFrameworkCore;
 
 namespace ConferencePlanner.GraphQL.Speakers

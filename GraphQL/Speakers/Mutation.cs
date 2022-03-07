@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using ConferancePlanner.GraphQL.Extensions;
 using ConferencePlanner.GraphQL.Data;
+using HotChocolate;
+using HotChocolate.Types;
 
 namespace ConferancePlanner.GraphQL
 {

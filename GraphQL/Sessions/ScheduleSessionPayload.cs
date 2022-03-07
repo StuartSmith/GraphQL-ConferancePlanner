@@ -8,6 +8,7 @@ using ConferancePlanner.GraphQL.Data;
 using ConferancePlanner.GraphQL.DataLoader;
 using ConferancePlanner.GraphQL.Extensions;
 using ConferencePlanner.GraphQL.Data;
+using HotChocolate;
 using Microsoft.EntityFrameworkCore;
 
 namespace ConferancePlanner.GraphQL.Sessions
