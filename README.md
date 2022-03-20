@@ -230,9 +230,10 @@ query GetSpeaker {
     bio
     id
   }
-
 }
 
 
 #### Create the session data...
+Create a Session
+
 

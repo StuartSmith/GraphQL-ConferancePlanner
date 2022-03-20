@@ -33,7 +33,7 @@ namespace ConferancePlanner.GraphQL.Types
         private class SpeakerResolvers
         {
             public async Task<IEnumerable<Session>> GetSessionsAsync(
-                Speaker speaker,
+                [Parent]Speaker speaker,
                 [ScopedService] ApplicationDbContext dbContext,
                 SessionByIdDataLoader sessionById,
                 CancellationToken cancellationToken)

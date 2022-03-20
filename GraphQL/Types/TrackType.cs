@@ -37,13 +37,13 @@ namespace ConferancePlanner.GraphQL.Types
         private class TrackResolvers
         {
             public async Task<IEnumerable<Session>> GetSessionsAsync(
-                Track track,
+                [Parent]Track track,
                 [ScopedService] ApplicationDbContext dbContext,
                 SessionByIdDataLoader sessionById,
                 CancellationToken cancellationToken)
             {
                 int[] sessionIds = await dbContext.Sessions
-                    .Where(s => s.Id == track.Id)
+                    .Where(s => s.TrackId == track.Id)
                     .Select(s => s.Id)
                     .ToArrayAsync();
 

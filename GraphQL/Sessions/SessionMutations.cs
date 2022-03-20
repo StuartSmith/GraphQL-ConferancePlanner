@@ -39,6 +39,7 @@ namespace ConferancePlanner.GraphQL.Sessions
                 Abstract = input.Abstract,
             };
 
+
             foreach (int speakerId in input.SpeakerIds)
             {
                 session.SessionSpeakers.Add(new SessionSpeaker

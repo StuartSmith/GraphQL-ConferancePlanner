@@ -1,0 +1,27 @@
+Speaker: Jeff Fritz
+Bio:I write code live on video streams and teach as I build fun applications. I work on the .NET and Visual Studio groups at Microsoft 
+webSite: "https://www.linkedin.com/in/jeffreytfritz/" 
+
+Sessions:    
+
+	Title: Build your first web app with Blazor & Web Assembly
+	Description: Overview of blazer technology go over the ins an outs of Blazer. 
+		     Go through the process of creating a simple application with blazer
+
+	Track:Blazer
+	
+
+	Title: Deep dive into  Blazor & Web Assembly
+	
+	With WebAssembly, creating web applications can be built with any programming language; 
+			  JavaScript is no longer the only choice. In this deep dive, 
+			  I'll cover WebAssembly and Blazor so you get a solid understanding of these technologies.
+			  I'll define what WebAssembly is and how you can call WebAssembly modules in JavaScript.
+			  I'll also show how you can use Blazor to run C# natively in the browser. 
+			 I'll cover Blazor aspects and features like routing, components, JavaScript-script interop, dependency injection, state management, and so much more!
+
+	Track:Blazer	
+
+
+Speaker: Sam George
+	Bio:Sam George is the Corporate Vice President of Azure IoT, delivering a broad portfolio of services and capabilities that help our customers and partners realize the full potential of the Internet of Things. He is responsible for Azure IoT services including Digital Twins, IoT Hub, IoT Edge, IoT Central and leads the Azure industries for Manufacturing, Automotive, Real Estate and Energy including cross industry efforts like the Open Manufacturing Platform and the Digital Twins Consortium. Sam and his team’s mission is to simplify IoT so that every business on the planet can benefit from the digital transformation it enables. A 21-year Microsoft veteran, Sam started his career as a software developer and is passionate about how technology can enable a more inclusive and sustainable world. You can follow Sam online on his IoT Blog aka.ms/SamGeorge or on Twitter at @samjgeorge

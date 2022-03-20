@@ -36,6 +36,7 @@ namespace ConferencePlanner.GraphQL
                 .AddQueryType(d => d.Name("Query"))
                 .AddTypeExtension<SpeakerQueries>()
                 .AddTypeExtension<TrackQueries>()
+                .AddTypeExtension<SessionQueries>()
                 .AddMutationType(d => d.Name("Mutation"))
                 .AddTypeExtension<SessionMutations>()
                 .AddTypeExtension<SpeakerMutations>()
