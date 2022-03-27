@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using ConferancePlanner.GraphQL.Data;
+using ConferancePlanner.GraphQL.Extensions;
 
 namespace ConferencePlanner.GraphQL.Data
 {
@@ -9,6 +10,7 @@ namespace ConferencePlanner.GraphQL.Data
 
         [Required]
         [StringLength(200)]
+        [UseUpperCase]
         public string? Name { get; set; }
 
         [StringLength(4000)]

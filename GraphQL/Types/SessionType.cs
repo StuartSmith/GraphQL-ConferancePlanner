@@ -58,9 +58,6 @@ namespace ConferancePlanner.GraphQL.Types
                     .SelectMany(s => s.SessionSpeakers.Select(t => t.SpeakerId))
                     .ToArrayAsync();
 
-                
-
-
                 return await speakerById.LoadAsync(speakerIds, cancellationToken);
             }
 
